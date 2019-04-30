@@ -16,25 +16,8 @@ public class BootStrapController {
 
     BootStrapController() {
         this.map = new HashMap<>();
-//        map.put("SJSUSEN001", 0);
-//        map.put("SJSUCAM001",0);
-//        map.put("SJSUSPR001",0);
     }
 
-//    @GetMapping("/{id}")
-//    public String writeTo( @PathVariable("id") String fid) {
-//        ///System.out.println("aaa");
-//        if (map.containsKey(fid)) {
-//            if (map.get(fid) == 0) {
-//                map.put(fid,1);
-//                return url;
-//            } else {
-//                return "The device is being bootstrapped";
-//            }
-//        } else {
-//            return "Invalid Device";
-//        }
-//    }
 
     @GetMapping("/{id}")
     public String writeTo(@PathVariable("id") String fid) {
@@ -52,13 +35,6 @@ public class BootStrapController {
 
     @GetMapping("/discover/{id}")
     public String discover( @PathVariable("id") String fid) {
-//        if (!map.containsKey(fid)) {
-//            return "Invalid Device";
-//        } else if (map.get(fid) == 0) {
-//            return "Not Boot Strapped Device";
-//        } else {
-//            return "Boot Strapped Device";
-//        }
         if (fid.matches("SJSUSEN[0-9]+") || fid.matches("SJSUCAM[0-9]+") || fid.matches("SJSUSPR[0-9]+")) {
             if (!map.containsKey(fid)) {
                 return "Not yet being boot strapped";
